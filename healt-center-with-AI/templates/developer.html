@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Developer - Health Care Center</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+      :root {
+        --primary-color: #2c3e50;
+        --secondary-color: #3498db;
+        --accent-color: #e74c3c;
+        --light-color: #ecf0f1;
+        --dark-color: #2c3e50;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f8f9fa;
+      }
+
+      .developer-hero {
+        background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)),
+                    url('https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 5rem 0;
+        margin-bottom: 3rem;
+        border-radius: 15px;
+      }
+
+      .developer-card {
+        background-color: white;
+        border-radius: 15px;
+        padding: 2.5rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+      }
+
+      .developer-profile {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+
+      .developer-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid var(--secondary-color);
+        margin-right: 2rem;
+      }
+
+      .developer-name {
+        font-weight: 700;
+        font-size: 2rem;
+        color: var(--dark-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .developer-title {
+        color: var(--secondary-color);
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+      }
+
+      .social-links a {
+        color: var(--dark-color);
+        font-size: 1.5rem;
+        margin-right: 1rem;
+        transition: all 0.3s;
+      }
+
+      .social-links a:hover {
+        color: var(--secondary-color);
+        transform: translateY(-3px);
+      }
+
+      .skill-badge {
+        background-color: var(--light-color);
+        color: var(--dark-color);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+        display: inline-block;
+        font-weight: 500;
+        transition: all 0.3s;
+      }
+
+      .skill-badge:hover {
+        background-color: var(--secondary-color);
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      .timeline {
+        position: relative;
+        padding-left: 2rem;
+        margin-top: 2rem;
+      }
+
+      .timeline:before {
+        content: '';
+        position: absolute;
+        left: 7px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--light-color);
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 2rem;
+        padding-left: 2rem;
+      }
+
+      .timeline-item:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 5px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--secondary-color);
+        border: 3px solid white;
+      }
+
+      .timeline-date {
+        font-weight: 600;
+        color: var(--secondary-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .timeline-title {
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .timeline-description {
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar (same as index.html) -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, var(--primary-color), var(--dark-color));">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="/">
+          <img src="{{ url_for('static', filename='i2.jpg') }}" alt="Logo" class="logo-img me-2" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid white;">
+          Health Center
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/developer">Developer</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/blog">Blog</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container">
+      <div class="developer-hero text-center">
+        <h1 class="display-4 fw-bold">Meet the Developer</h1>
+        <p class="lead">The mind behind Health Care Center's AI technology</p>
+      </div>
+    </div>
+
+    <!-- Developer Profile -->
+    <div class="container">
+      <div class="developer-card">
+        <div class="developer-profile">
+          <img src="https://media.licdn.com/dms/image/v2/D4D03AQECJ8n7g28ULg/profile-displayphoto-scale_400_400/B4DZepUKwmGYAg-/0/1750892328752?e=1756944000&v=beta&t=h6YyTPzRoiGpWqmBD26g1Vv6Igu5Zr9Qz8INOXW0DyM" alt="Junaid Khan" class="developer-img">
+          <div>
+            <h2 class="developer-name">RANJITH SAMUDRALA</h2>
+            <p class="developer-title">AI & ML Engineer | Healthcare Technology Specialist</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fas fa-globe"></i></a>
+              <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="mb-4">About Ranjith: Your AI & ML Engineer</h3>
+
+        <h4 class="mt-4 mb-3">Meet the Developer</h4>
+        <p>Hello, I'm Ranjith Samudrala, your AI and Machine Learning Engineer with over 3 years of experience in the field. I am passionate about harnessing the power of technology to make a positive impact on people's lives. Allow me to share a bit about my journey in the world of artificial intelligence and machine learning.</p>
+
+        <h4 class="mt-4 mb-3">My Expertise</h4>
+        <p>With a strong academic background in computer science and a deep fascination for AI and ML, I embarked on a journey that has taken me across the globe, working on diverse and innovative projects. Over the years, I've had the privilege of collaborating on international projects that have pushed the boundaries of what's possible in AI and ML.</p>
+
+        <div class="my-4">
+          <h5>Technical Skills</h5>
+          <div>
+            <span class="skill-badge">Machine Learning</span>
+            <span class="skill-badge">Deep Learning</span>
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">Flask</span>
+            <span class="skill-badge">TensorFlow</span>
+            <span class="skill-badge">PyTorch</span>
+            <span class="skill-badge">Data Science</span>
+            <span class="skill-badge">Healthcare AI</span>
+            <span class="skill-badge">Natural Language Processing</span>
+            <span class="skill-badge">Computer Vision</span>
+          </div>
+        </div>
+
+        <h4 class="mt-4 mb-3">A Commitment to Excellence</h4>
+        <p>My work is driven by a commitment to excellence and a belief that technology should be accessible and beneficial to everyone. Whether it's developing predictive models, creating intelligent algorithms, or designing user-friendly interfaces, I strive for solutions that are both cutting-edge and user-centric.</p>
+
+        <h4 class="mt-4 mb-3">Passion for Health Tech</h4>
+        <p>The development of Health Care Center represents a convergence of my passion for AI and my dedication to improving healthcare accessibility. I believe that AI has the potential to transform the way we approach healthcare, making it more personalized and informative. This platform is a testament to that vision.</p>
+
+        <h4 class="mt-4 mb-3">Professional Journey</h4>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2024 - Present</div>
+            <h5 class="timeline-title">AI/ML Engineer</h5>
+            <p class="timeline-description">Developing innovative machine learning solutions for healthcare applications.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2023 - 2024</div>
+            <h5 class="timeline-title">Data Scientist</h5>
+            <p class="timeline-description">Worked on predictive analytics and data modeling projects.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2023 - 2024</div>
+            <h5 class="timeline-title">Software Developer</h5>
+            <p class="timeline-description">Built web applications and backend systems.</p>
+          </div>
+        </div>
+
+        <h4 class="mt-4 mb-3">Join Me on this Journey</h4>
+        <p>I invite you to explore Health Care Center and experience firsthand the fusion of AI and healthcare. Together, we can empower individuals with knowledge, promote well-being, and contribute to a brighter and healthier future.</p>
+
+        <div class="text-center mt-5">
+          <a href="/contact" class="btn btn-primary btn-lg">
+            <i class="fas fa-envelope me-2"></i>Get in Touch
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="footer mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-4 mb-md-0">
+            <h5>Health Care Center</h5>
+            <p>Empowering you with health knowledge and AI-driven insights for better living.</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="col-md-2 mb-4 mb-md-0">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled footer-links">
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/blog">Blog</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-4 mb-md-0">
+            <h5>Services</h5>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#">Symptom Checker</a></li>
+              <li><a href="#">Health Information</a></li>
+              <li><a href="#">Preventive Care</a></li>
+              <li><a href="#">Wellness Tips</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5>Contact Info</h5>
+            <ul class="list-unstyled">
+              <li><i class="fas fa-map-marker-alt me-2"></i> SR NAGAR ,Hyderabad, telangana, India</li>
+              <li><i class="fas fa-phone me-2"></i> 8688757315</li>
+              <li><i class="fas fa-envelope me-2"></i> ranjithsamudrala009@gmail.com</li>
+            </ul>
+          </div>
+        </div>
+        <hr class="mt-4 mb-4" style="border-color: rgba(255,255,255,0.1);">
+        <div class="text-center">
+          <p class="mb-0">&copy; 2023 Health Care Center. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
